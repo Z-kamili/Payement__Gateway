@@ -27,7 +27,19 @@ class PaypalController extends Controller
           $data['invoice_id'] = 1;
           $data['invoice_description'] = "Order Invoice";
           $data['return_url'] = route('payment.sucess');
-          $data['cancel_url'] = route('payment.sucess');
+          $data['cancel_url'] = route('payment.cancel');
+          $data['total'] = 100;
+
+          $provider = new ExpressCheckout;
+          $response = $provider->setExpressCheckout($data);
+          $response = $provider->setExpressCheckout($data);
+          return redirect($response['paypal_link']);
+
+       }
+
+       public function cancel()
+       {
+         dd('You are cancelled this payment');
        }
     
 }

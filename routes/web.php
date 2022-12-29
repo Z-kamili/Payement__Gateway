@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('payment',[PaypalController::class,'payment'])->name('payment');
-Route::get('cancel',[PaypalController::class,'cancel'])->name('cancel');
+Route::get('cancel',[PaypalController::class,'cancel'])->name('payment.cancel');
 Route::get('payement/success',[PaypalController::class,'success'])->name('payment.success');
 
