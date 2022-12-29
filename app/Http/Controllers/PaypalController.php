@@ -41,5 +41,23 @@ class PaypalController extends Controller
        {
          dd('You are cancelled this payment');
        }
+
+       public function success(Request $request)
+       {
+         
+         $provider = new ExpressCheckout;
+         $response = $provider->getExpressCheckoutDetails($request->token);
+
+         if (in_array(strtoupper($response['ACK']),['SUCCESS','SUCCESSWITHWARNING'])) {
+
+             # code... 
+             dd('Your payment was successfully,Thanks!');
+              
+         }
+
+         dd('Please try again later...');
+
+
+       }
     
 }
