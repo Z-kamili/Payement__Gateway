@@ -10,7 +10,9 @@ class PaypalController extends Controller
 
        public function payement()
        {
+
           $data = [];
+
           $data['items'] = [
            
              [
@@ -21,6 +23,10 @@ class PaypalController extends Controller
              ]
 
           ];
+
+          $data['invoice_id'] = 1;
+          $data['invoice_description'] = "Order Invoice";
+          $data['return_url'] = "Order Invoice";
        }
     
 }
