@@ -26,7 +26,8 @@ class PaypalController extends Controller
 
           $data['invoice_id'] = 1;
           $data['invoice_description'] = "Order Invoice";
-          $data['return_url'] = "Order Invoice";
+          $data['return_url'] = route('payment.sucess');
+          $data['cancel_url'] = route('payment.sucess');
        }
     
 }
